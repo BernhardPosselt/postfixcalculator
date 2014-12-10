@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from postfixcalculator.calculator.postfixcalculator import PostFixCalculator
+from postfixcalculator.calculator.postfixcalculator import PostFixCalculator, MalformedTermException
 
 def main():
     calculator = PostFixCalculator()
@@ -12,8 +12,11 @@ def main():
         if term == 'q':
             break
 
-        result = calculator.calculate(term)
-        print('The result is %s' %result)
+        try:
+            result = calculator.calculate(term)
+            print('The result is %s' %result)
+        except MalformedTermException as e:
+            print(e)
 
 
 if __name__ == '__main__':

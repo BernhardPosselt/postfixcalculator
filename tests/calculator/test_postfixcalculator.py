@@ -2,7 +2,7 @@
 
 import unittest
 
-from postfixcalculator.calculator.postfixcalculator import PostFixCalculator
+from postfixcalculator.calculator.postfixcalculator import PostFixCalculator, MalformedTermException
 
 
 class PostfixCalculatorTest(unittest.TestCase):
@@ -74,6 +74,16 @@ class PostfixCalculatorTest(unittest.TestCase):
         result = self.calculator.calculate(term)
 
         self.assertEqual(27, result)
+
+
+    def test_no_result(self):
+        term = ''
+        self.assertRaises(MalformedTermException, self.calculator.calculate, term)
+
+
+    def test_malformed_term(self):
+        term = '3 4 5 +**'
+        self.assertRaises(MalformedTermException, self.calculator.calculate, term)
 
 
 if __name__ == '__main__':
