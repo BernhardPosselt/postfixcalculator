@@ -10,6 +10,7 @@ class PostfixCalculatorTest(unittest.TestCase):
     def setUp(self):
         self.calculator = PostFixCalculator()
 
+
     def test_sanity(self):
         self.assertEqual(3, 3)
 
@@ -74,6 +75,7 @@ class PostfixCalculatorTest(unittest.TestCase):
         result = self.calculator.calculate(term)
 
         self.assertEqual(27, result)
+
 
     def tes_complex_term(self):
         term = '3 4 + 5 6 + *'
