@@ -9,6 +9,8 @@ class PostFixCalculator:
     def calculate(self, term):
         stack = []
         original_term = ''.join(term)  # copy string for error message
+        term = term.replace('~', '-')  # negation is already implemented using -
+                                       # so just replace ~ with -
         term = list(term)  # convert term to list so we can call pop on it
         exec_position = 0  # position for getting the error hint
 

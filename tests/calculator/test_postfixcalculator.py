@@ -164,6 +164,11 @@ class PostfixCalculatorTest(unittest.TestCase):
         self.assertEqual(None, token)
 
 
+    def test_negation(self):
+        term = '~4 3 +'
+        result = self.calculator.calculate(term)
+        self.assertEqual(-1, result)
+
 
 if __name__ == '__main__':
     unittest.main()
