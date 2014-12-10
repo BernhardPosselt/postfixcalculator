@@ -16,7 +16,7 @@ def main():
             result = calculator.calculate(term)
             print('The result is %s' %result)
         except MalformedTermException as e:
-            print(e)
+            print('Error:', e)
 
 
 if __name__ == '__main__':
