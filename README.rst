@@ -1,10 +1,16 @@
-# Run the program
+Python Postfix Calculator
+=========================
+
+Run the program
+---------------
 
 Execute the following to run the calculator::
 
     python3 -m postfixcalculator
 
-# Run the test suite
+
+Run the test suite
+------------------
 
 Execute the following to run the test suite::
 
