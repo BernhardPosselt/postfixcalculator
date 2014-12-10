@@ -55,5 +55,26 @@ class PostfixCalculatorTest(unittest.TestCase):
 
         self.assertEqual(1, result)
 
+    def test_multiplication(self):
+        term = '-2 -3 *'
+        result = self.calculator.calculate(term)
+
+        self.assertEqual(6, result)
+
+
+    def test_division(self):
+        term = '6 2 /'
+        result = self.calculator.calculate(term)
+
+        self.assertEqual(3, result)
+
+
+    def test_no_whitespace(self):
+        term = '3 4 5 +*'
+        result = self.calculator.calculate(term)
+
+        self.assertEqual(27, result)
+
+
 if __name__ == '__main__':
     unittest.main()
