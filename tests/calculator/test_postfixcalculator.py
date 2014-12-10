@@ -75,6 +75,12 @@ class PostfixCalculatorTest(unittest.TestCase):
 
         self.assertEqual(27, result)
 
+    def tes_complex_term(self):
+        term = '3 4 + 5 6 + *'
+        result = self.calculator.calculate(term)
+
+        self.assertEqual(77, result)
+
 
     def test_no_result(self):
         term = ''
@@ -83,6 +89,11 @@ class PostfixCalculatorTest(unittest.TestCase):
 
     def test_malformed_term(self):
         term = '3 4 5 +**'
+        self.assertRaises(MalformedTermException, self.calculator.calculate, term)
+
+
+    def test_malformed_term2(self):
+        term = '3 4 5 4 + +'
         self.assertRaises(MalformedTermException, self.calculator.calculate, term)
 
 

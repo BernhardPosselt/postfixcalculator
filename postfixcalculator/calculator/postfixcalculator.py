@@ -22,7 +22,8 @@ class PostFixCalculator:
                 next_token = self.get_next_token(term)
 
                 # unary minus and plus
-                if token in '+-' and next_token and next_token.isdigit():
+                if token in '+-' and next_token and next_token.isdigit() and \
+                len(stack) < 2:
                     next_token, steps = self.pop_next_token(term)
                     exec_position += steps
                     token = token + next_token
@@ -56,6 +57,8 @@ class PostFixCalculator:
 
         if len(stack) == 0:
             raise MalformedTermException('Term is empty')
+        elif len(stack) > 1:
+            raise MalformedTermException('Excess arguments')
         else:
             return stack[0]
 
