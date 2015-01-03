@@ -14,4 +14,4 @@ Run the test suite
 
 Execute the following to run the test suite::
 
-    python3 setup test
+    python3 setup.py test
